@@ -67,7 +67,7 @@ class BracketsTest < Minitest::Test
   end
 
   def test_complex_latex_expression
-    skip
+    # skip
     str = '\left(\begin{array}{cc} \frac{1}{3} & x\\ '\
           '\mathrm{e}^{x} &... x^2 \end{array}\right)'
     assert Brackets.paired?(str)
@@ -91,7 +91,7 @@ class BracketsTest < Minitest::Test
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
 
   def test_bookkeeping
-    skip
+    # skip
     assert_equal 3, BookKeeping::VERSION
   end
 end

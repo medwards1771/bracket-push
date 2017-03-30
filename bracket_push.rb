@@ -1,9 +1,7 @@
-require 'pry'
-
 class Brackets
   def self.paired?(string)
     return true if string == ''
-    return false unless leading_character?(string[0])
+    return false if begins_with_closer?(string[0])
     string = clean_up(string)
     return false unless string.gsub(' ', '').size.even?
     return true if matching?(string) && nested?(string)
@@ -16,8 +14,8 @@ class Brackets
     end.join
   end
 
-  def self.leading_character?(char)
-    char == '(' || char == '{' || char == '['
+  def self.begins_with_closer?(char)
+    char == '}' || char == ']' || char == ')'
   end
 
   def self.matching?(string)
@@ -59,4 +57,8 @@ class Brackets
       end
     end
   end
+end
+
+module BookKeeping
+  VERSION = 3 # Where the version number matches the one in the test.
 end
