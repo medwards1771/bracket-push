@@ -4,9 +4,16 @@ class Brackets
   def self.paired?(string)
     return true if string == ''
     return false unless leading_character?(string[0])
+    string = clean_up(string)
     return false unless string.gsub(' ', '').size.even?
     return true if matching?(string) && nested?(string)
     false
+  end
+
+  def self.clean_up(string)
+    string.split(//).select do |char|
+      ["{", "}", "[", "]", "(", ")"].include?(char)
+    end.join
   end
 
   def self.leading_character?(char)
