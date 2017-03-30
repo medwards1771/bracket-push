@@ -47,12 +47,12 @@ class BracketsTest < Minitest::Test
   end
 
   def test_unopened_closing_brackets
-    skip
+    # skip
     refute Brackets.paired?('{[)][]}')
   end
 
   def test_unpaired_and_nested_brackets
-    skip
+    # skip
     refute Brackets.paired?('([{])')
   end
 

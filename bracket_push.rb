@@ -10,17 +10,10 @@ class Brackets
   end
 
   def self.matching_brackets(string)
-    if string.include?('{') && string.include?('[')
-      return string.count('{') == string.count('}') && string.count('[') == string.count(']')
-    end
-    if string.include?('{')
-      return string.count('{') == string.count('}')
-    end
-    if string.include?('[')
-      return string.count('[') == string.count(']')
-    end
-    if string.include?('(') || string.include?(')')
-      string.count('(') == string.count(')')
-    end
+    string = string.gsub("{", "(")
+    string = string.gsub("[", "(")
+    string = string.gsub("}", ")")
+    string = string.gsub("]", ")")
+    string.count("(") == string.count(")")
   end
 end
