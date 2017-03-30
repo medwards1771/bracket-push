@@ -5,7 +5,6 @@ class Brackets
     string = clean_up(string)
     return false unless string.gsub(' ', '').size.even?
     return true if matching?(string) && nested?(string)
-    false
   end
 
   def self.clean_up(string)
